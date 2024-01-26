@@ -1,7 +1,9 @@
 import 'package:fic11_pos_apps/core/presentation/auth/pages/login_page.dart';
+import 'package:fic11_pos_apps/core/presentation/history/pages/history_page.dart';
 import 'package:fic11_pos_apps/core/presentation/home/bloc/logout/logout_bloc.dart';
 import 'package:fic11_pos_apps/core/presentation/home/pages/home_page.dart';
-import 'package:fic11_pos_apps/core/presentation/setting/setting_page.dart';
+import 'package:fic11_pos_apps/core/presentation/order/pages/order_page.dart';
+import 'package:fic11_pos_apps/core/presentation/setting/pages/setting_page.dart';
 import 'package:fic11_pos_apps/data/datasources/auth_local_datasources.dart';
 import 'package:fic11_pos_apps/data/models/response/auth_response_model.dart';
 import 'package:flutter/material.dart';
@@ -24,12 +26,8 @@ class _DashboardPageState extends State<DashboardPage> {
 
   final List<Widget> _pages = [
     const HomePage(),
-    const Center(
-      child: Text('Order'),
-    ),
-    const Center(
-      child: Text('History'),
-    ),
+    const OrdersPage(),
+    const HistoryPage(),
     const SettingPage(),
     //   const HomePage(),
     //   const OrdersPage(),
@@ -49,7 +47,7 @@ class _DashboardPageState extends State<DashboardPage> {
       // appBar: AppBar(
       //   title: const Text("Dashboard"),
       //   actions: [
-      //     
+      //
       //   ],
       // ),
       body: _pages[_selectedIndex],

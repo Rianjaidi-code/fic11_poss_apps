@@ -35,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           const SpaceHeight(80.0),
           Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 130.0),
+              padding: const EdgeInsets.symmetric(horizontal: 60.0),
               child: Image.asset(
                 Assets.images.logo.path,
                 width: 100,
@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
           const SpaceHeight(24.0),
           const Center(
             child: Text(
-              "POS Batch 11",
+              "Kirai Kopi",
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
@@ -66,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
           const SpaceHeight(40.0),
           CustomTextField(
             controller: usernameController,
-            label: 'Username',
+            label: 'Email',
           ),
           const SpaceHeight(12.0),
           CustomTextField(

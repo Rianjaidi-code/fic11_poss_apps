@@ -28,7 +28,10 @@ class AuthRemoteDatasource {
     final authData = await AuthLocalDataSource().getAuthData();
     final response = await http.post(
       Uri.parse('${Variables.baseUrl}/api/logout'),
-      headers: {'Authorization' : 'Bearer ${authData.token}'},
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer ${authData.token}'
+      },
     );
     if (response.statusCode == 200) {
       return right(response.body);

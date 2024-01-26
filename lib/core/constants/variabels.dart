@@ -1,4 +1,4 @@
 class Variables {
-  static const String baseUrl = 'http://192.168.2.75:8000';
+  static const String baseUrl = 'https://fic11.etalaseapps.co.id';
   static const String imageBaseUrl = '$baseUrl/storage/products/';
 }

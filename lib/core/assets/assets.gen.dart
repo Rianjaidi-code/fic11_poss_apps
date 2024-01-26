@@ -87,6 +87,10 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/background_apps.webp
+  AssetGenImage get backgroundApps =>
+      const AssetGenImage('assets/images/background_apps.webp');
+
   /// File path: assets/images/f1.jpeg
   AssetGenImage get f1 => const AssetGenImage('assets/images/f1.jpeg');
 
@@ -128,6 +132,7 @@ class $AssetsImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
+        backgroundApps,
         f1,
         f2,
         f3,

@@ -1,10 +1,17 @@
 import 'package:fic11_pos_apps/core/presentation/auth/bloc/bloc/login_bloc.dart';
 import 'package:fic11_pos_apps/core/presentation/auth/pages/login_page.dart';
+import 'package:fic11_pos_apps/core/presentation/history/bloc/history/history_bloc.dart';
+import 'package:fic11_pos_apps/core/presentation/home/bloc/checkout/checkout_bloc.dart';
 import 'package:fic11_pos_apps/core/presentation/home/bloc/logout/logout_bloc.dart';
 import 'package:fic11_pos_apps/core/presentation/home/bloc/product/product_bloc.dart';
 import 'package:fic11_pos_apps/core/presentation/home/pages/dashboard.dart';
+import 'package:fic11_pos_apps/core/presentation/order/bloc/order/order_bloc.dart';
+import 'package:fic11_pos_apps/core/presentation/order/bloc/qris/qris_bloc.dart';
+import 'package:fic11_pos_apps/core/presentation/setting/bloc/sync_order/sync_order_bloc.dart';
 import 'package:fic11_pos_apps/data/datasources/auth_local_datasources.dart';
 import 'package:fic11_pos_apps/data/datasources/auth_remote_datasources.dart';
+import 'package:fic11_pos_apps/data/datasources/midtrans_remote_datasources.dart';
+import 'package:fic11_pos_apps/data/datasources/order_remote_datasources.dart';
 import 'package:fic11_pos_apps/data/datasources/product_remote_datasources.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,6 +40,15 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => ProductBloc(ProductRemoteDataSource())
             ..add(const ProductEvent.fetchLocal()),
+        ),
+        BlocProvider(create: (context) => CheckoutBloc()),
+        BlocProvider(create: (context) => OrderBloc()),
+        BlocProvider(
+          create: (context) => QrisBloc(MidtransRemoteDatasource()),
+        ),
+        BlocProvider(create: (context) => HistoryBloc()),
+        BlocProvider(
+          create: (context) => SyncOrderBloc(OrderRemoteDataSource()),
         ),
       ],
       child: MaterialApp(
